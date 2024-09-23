@@ -1,17 +1,21 @@
 const initialState = [
-  ["O", "X", "O"],
-  ["O", "O", "O"],
-  ["O", "O", "O"],
+  [null, null, null],
+  [null, null, null],
+  [null, null, "sss"],
 ];
 
 export default function gameBoard() {
   return (
     <table className="gameboard">
       {initialState.map((row, rowIndex) => (
-        <tr class="gameboard__row" key={rowIndex}>
+        <tr className="gameboard__row" key={rowIndex}>
           {row.map((dataCell, dataCellIndex) => (
-            <td key="dataCellIndex" className="gameboard__cell">
-              <button className="gameboard__button">{dataCell}</button>
+            <td key={dataCellIndex} className="gameboard__cell">
+              {dataCell === null ? (
+                <button className="gameboard__button">{dataCell}</button>
+              ) : (
+                dataCell
+              )}
             </td>
           ))}
         </tr>
