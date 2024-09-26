@@ -82,6 +82,11 @@
   display: flex;
 }
 
+.gameboard__button:hover {
+  background-color: rgba(0, 0, 0, 0.3);
+  font-size: 1em;
+}
+
 .xSymbol,
 .oSymbol {
   max-width: 90px;
@@ -119,4 +124,15 @@
   height: 100%;
   transform: rotate(90deg);
   background-color: #f24e1e;
+}
+
+.restartButton {
+  width: 100%;
+  max-width: 200px;
+  padding: 5px;
+  font-family: inherit;
+  font-size: 1.2em;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
 }
