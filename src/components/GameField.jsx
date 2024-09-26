@@ -1,25 +1,27 @@
-const initialState = [
-  [null, null, null],
-  [null, null, null],
-  [null, null, "sss"],
-];
+export default function gameBoard({gameBoard, handleGameTurns}) {
+  const oSymbol = <span className="oSymbol">O</span>;
+  const xSymbol = <span className="xSymbol">X</span>;
 
-export default function gameBoard() {
   return (
-    <table className="gameboard">
-      {initialState.map((row, rowIndex) => (
-        <tr className="gameboard__row" key={rowIndex}>
+    <div className="gameboard">
+      {gameBoard.map((row, rowIndex) => (
+        <div className="gameboard__column" key={rowIndex}>
           {row.map((dataCell, dataCellIndex) => (
-            <td key={dataCellIndex} className="gameboard__cell">
+            <div key={dataCellIndex} className="gameboard__cell">
               {dataCell === null ? (
-                <button className="gameboard__button">{dataCell}</button>
+                <button
+                  onClick={() => handleGameTurns(rowIndex, dataCellIndex)}
+                  className="gameboard__button"
+                ></button>
+              ) : dataCell === "X" ? (
+                xSymbol
               ) : (
-                dataCell
+                oSymbol
               )}
-            </td>
+            </div>
           ))}
-        </tr>
+        </div>
       ))}
-    </table>
+    </div>
   );
 }

@@ -16,57 +16,55 @@
 
 .gameboard {
   max-height: 500px;
-  table-layout: fixed;
-
-  height: 100%;
-  max-width: 500px;
+  display: grid;
   width: 100%;
-  border-collapse: collapse;
+  grid-template-columns: 1fr 1fr 1fr;
+  height: 500px;
 }
 
-.gameboard__row {
+.gameboard__column {
+  display: grid;
   position: relative;
+  grid-auto-rows: 1fr;
 }
 
-.gameboard__row:after {
-  left: 0;
-  bottom: 0;
+.gameboard__column:after {
   content: "";
-  width: 100%;
-  position: absolute;
-  height: 15px;
-  background-color: #000;
-  border-radius: 15px;
-}
-.gameboard__cell {
-  position: relative;
-  width: 100%;
-}
-.gameboard__cell::before {
   display: block;
-  right: 0;
-  bottom: 0;
-  content: "";
-  width: 15px;
+  right: -5px;
+  top: 0;
+  width: 10px;
   position: absolute;
+  background-color: black;
   height: 100%;
-  background-color: #000;
+  border-radius: 5px;
 }
 
-.gameboard__cell:last-child::before {
+.gameboard__column:last-child:after {
   display: none;
 }
 
-.gameboard__row:first-child .gameboard__cell::before {
-  border-radius: 15px;
+.gameboard__cell {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.gameboard__row:last-child .gameboard__cell::before {
-  border-bottom-left-radius: 15px;
-  border-bottom-right-radius: 15px;
+.gameboard__cell::before {
+  content: "";
+  display: block;
+  background-color: black;
+  height: 10px;
+  width: 100%;
+  position: absolute;
+  bottom: -5px;
+  box-sizing: border-box;
+
+  border-radius: 5px;
 }
 
-.gameboard__row:last-child::after {
+.gameboard__cell:nth-child(3)::before {
   display: none;
 }
 
@@ -74,7 +72,51 @@
   border: none;
   background-color: transparent;
   padding: 0;
-  font-size: 5em;
+  font-size: 0;
   width: 100%;
   height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  cursor: pointer;
+  display: flex;
+}
+
+.xSymbol,
+.oSymbol {
+  max-width: 90px;
+  width: 50px;
+  display: flex;
+  max-height: 90px;
+  height: 50px;
+  font-size: 0;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  left: 50%;
+}
+.oSymbol {
+  border: 10px solid #27aaff;
+  font-size: 0;
+  position: absolute;
+  border-radius: 50%;
+}
+
+.xSymbol {
+  max-width: 10px;
+  height: 70px;
+  background-color: #f24e1e;
+  transform: translate(-50%, -50%) rotate(45deg);
+  border-radius: 15px;
+}
+
+.xSymbol::after {
+  position: absolute;
+  content: "";
+  display: block;
+  width: 100%;
+  border-radius: 15px;
+  height: 100%;
+  transform: rotate(90deg);
+  background-color: #f24e1e;
 }
