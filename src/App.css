@@ -13,11 +13,14 @@
 .header__title {
   font-size: 4em;
 }
-
+.header__instruction {
+  font-size: 2em;
+}
 .gameboard {
   max-height: 500px;
   display: grid;
   width: 100%;
+  max-width: 600px;
   grid-template-columns: 1fr 1fr 1fr;
   height: 500px;
 }
@@ -128,6 +131,7 @@
 
 .restartButton {
   width: 100%;
+
   max-width: 200px;
   padding: 5px;
   font-family: inherit;
@@ -135,4 +139,10 @@
   background-color: transparent;
   border: none;
   cursor: pointer;
+  box-sizing: border-box;
+}
+
+.restartButton:hover {
+  border-bottom: 2px solid #000;
+  padding-bottom: 3px;
 }
