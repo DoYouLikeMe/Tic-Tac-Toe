@@ -1,4 +1,9 @@
-export default function gameBoard({gameBoard, handleGameTurns}) {
+export default function gameBoard({
+  gameBoard,
+  handleGameTurns,
+  winner,
+  isDraw,
+}) {
   const oSymbol = <span className="oSymbol">O</span>;
   const xSymbol = <span className="xSymbol">X</span>;
 
@@ -10,6 +15,7 @@ export default function gameBoard({gameBoard, handleGameTurns}) {
             <div key={dataCellIndex} className="gameboard__cell">
               {dataCell === null ? (
                 <button
+                  disabled={winner !== null || isDraw}
                   onClick={() => handleGameTurns(rowIndex, dataCellIndex)}
                   className="gameboard__button"
                 ></button>

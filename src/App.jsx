@@ -93,13 +93,16 @@ function App() {
 
     if (winningCombination.length) winner = currentPlayer;
     else if (!gameboard.flat().includes(null)) isDraw = true;
-
-    console.log(isDraw, winner);
   };
   return (
     <>
       <Header />
-      <GameField handleGameTurns={handleGameTurns} gameBoard={gameBoardData} />
+      <GameField
+        winner={winner}
+        isDraw={isDraw}
+        handleGameTurns={handleGameTurns}
+        gameBoard={gameBoardData}
+      />
       <RestartButton
         winner={winner}
         isDraw={isDraw}
