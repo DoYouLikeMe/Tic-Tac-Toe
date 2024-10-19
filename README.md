@@ -10,6 +10,6 @@ This project is a React application bootstrapped with [Vite](https://vite.dev/).
 - React framework
 - Easy configuration and setup
 
-### Installation
+## Installation
 
 To start a project run npm run dev.
